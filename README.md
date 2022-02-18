@@ -1,4 +1,4 @@
-# VideoPoker Server
+# Minesweeper Server
 This is VideoPoker Game Server for Atari Casino Platform.
 Server's main communication method is http communication.
 you can learn http communication about this repositry.
