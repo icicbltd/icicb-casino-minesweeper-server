@@ -24,19 +24,18 @@ module.exports = {
             userToken: token,
             amount: amountValue,
         }
-        console.log(user[token]);
         try {
-            // try {
-            //     await axios.post(
-            //         process.env.PLATFORM_SERVER + "api/games/bet",
-            //         {
-            //             token: user[token].userToken,
-            //             amount: user[token].betAmount,
-            //         }
-            //     );
-            // } catch (err) {
-            //     throw new Error("Bet Error!");
-            // }
+            try {
+                await axios.post(
+                    process.env.PLATFORM_SERVER + "api/games/bet",
+                    {
+                        token: user[token].userToken,
+                        amount: user[token].betAmount,
+                    }
+                );
+            } catch (err) {
+                throw new Error("Bet Error!");
+            }
             var pit = getArray();
             var total = user[token].amount - user[token].betAmount;
             try {
