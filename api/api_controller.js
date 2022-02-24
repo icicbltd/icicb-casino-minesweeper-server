@@ -51,7 +51,7 @@ module.exports = {
             res.json({
                 serverMsg: err.message
             })
-            delete user[token];
+            
         }
     },
     GameResult: async (req, res) => {
@@ -98,6 +98,6 @@ module.exports = {
                 serverMsg: err.message
             })
         }
-        delete user[token];
+        
     },
 };
