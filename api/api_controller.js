@@ -25,17 +25,17 @@ module.exports = {
             amount: amountValue,
         }
         try {
-            try {
-                await axios.post(
-                    process.env.PLATFORM_SERVER + "api/games/bet",
-                    {
-                        token: user[token].userToken,
-                        amount: user[token].betAmount,
-                    }
-                );
-            } catch (err) {
-                throw new Error("Bet Error!");
-            }
+            // try {
+            //     await axios.post(
+            //         process.env.PLATFORM_SERVER + "api/games/bet",
+            //         {
+            //             token: user[token].userToken,
+            //             amount: user[token].betAmount,
+            //         }
+            //     );
+            // } catch (err) {
+            //     throw new Error("Bet Error!");
+            // }
             var pit = getArray();
             var total = user[token].amount - user[token].betAmount;
             try {
@@ -51,7 +51,7 @@ module.exports = {
             res.json({
                 serverMsg: err.message
             })
-            
+
         }
     },
     GameResult: async (req, res) => {
@@ -69,18 +69,18 @@ module.exports = {
         }
         try {
             var raisePrice = user[token].betAmount * user[token].cases;
-            try {
-                await axios.post(
-                    process.env.PLATFORM_SERVER + "api/games/winlose",
-                    {
-                        token: user[token].userToken,
-                        amount: raisePrice,
-                        winState: raisePrice != 0 ? true : false,
-                    }
-                )
-            } catch (err) {
-                throw new Error("WinLose Error!");
-            }
+            // try {
+            //     await axios.post(
+            //         process.env.PLATFORM_SERVER + "api/games/winlose",
+            //         {
+            //             token: user[token].userToken,
+            //             amount: raisePrice,
+            //             winState: raisePrice != 0 ? true : false,
+            //         }
+            //     )
+            // } catch (err) {
+            //     throw new Error("WinLose Error!");
+            // }
             var total = user[token].amount + raisePrice;
             var msg = "You win! ->" + "+" + raisePrice.toFixed(3);
             try {
@@ -98,6 +98,6 @@ module.exports = {
                 serverMsg: err.message
             })
         }
-        
+
     },
 };
